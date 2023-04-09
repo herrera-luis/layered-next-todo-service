@@ -4,6 +4,7 @@ import { Todo } from '../models/Todo';
 interface TodoItemProps {
     todo: Todo;
 }
+type TodoStatus = 'todo' | 'in-progress' | 'block' | 'done';
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     return (
@@ -14,7 +15,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
                     <small><span>{calculateTimeElapsed(todo.created_at)}</span></small>
                 </div>
                 <p className="mb-1">{todo.description}</p>
-                <span className="badge bg-secondary">{todo.status}</span>
+                <span className={`badge ${getBadgeColor(todo.status as TodoStatus)}`}>{todo.status}</span>
             </a>
             {/* Add buttons or controls for updating and deleting the todo */}
         </div>
@@ -33,3 +34,14 @@ function calculateTimeElapsed(created_at: string): string {
         ? `${hoursPassed} hour(s) ago`
         : `${daysPassed} day(s) ago`;
 }
+
+
+const getBadgeColor = (status: TodoStatus): string => {
+    const statusColors: Record<TodoStatus, string> = {
+        todo: 'bg-secondary',
+        'in-progress': 'bg-primary',
+        block: 'bg-warning',
+        done: 'bg-success',
+    };
+    return statusColors[status];
+};
