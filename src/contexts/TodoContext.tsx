@@ -14,7 +14,7 @@ const TodoContextDefaultValues: TodoContextType = {
 };
 
 
-export const TodoContext = createContext<TodoContextType | undefined>(TodoContextDefaultValues);
+export const TodoContext = createContext<TodoContextType>(TodoContextDefaultValues);
 
 
 
@@ -41,8 +41,8 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
         setCurrentTodo(null);
     };
 
-    const deleteTodoHandler = async (id: number) => {
-        await deleteTodo(id);
+    const deleteTodoHandler = async (id: number | undefined) => {
+        await deleteTodo(id!);
         setTodos(todos.filter(todo => todo.id !== id));
     };
 

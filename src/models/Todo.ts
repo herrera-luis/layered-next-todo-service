@@ -11,7 +11,11 @@ export interface TodoContextType {
     setCurrentTodo: (todo: Todo | null) => void;
     addTodo: (todo: Todo) => void;
     updateTodo: (todo: Todo) => void;
-    deleteTodo: (id: number) => void;
+    deleteTodo: (id: number | undefined) => void;
+}
+
+export interface TodoItemProps {
+    todo: Todo;
 }
 export interface TodoProviderProps {
     children: React.ReactNode;

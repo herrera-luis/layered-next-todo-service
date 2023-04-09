@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { useContext } from 'react';
-import { Todo } from '../models/Todo';
+import { TodoItemProps } from '../models/Todo';
 import { TodoContext } from '../contexts/TodoContext';
 import ConfirmationModal from "./ConfirmationModal";
-import { Modal, Button } from "react-bootstrap";
 
-interface TodoItemProps {
-    todo: Todo;
-}
 type TodoStatus = 'todo' | 'in-progress' | 'block' | 'done';
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
@@ -57,8 +52,8 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     );
 };
 
-function calculateTimeElapsed(created_at: string): string {
-    const createdAt = new Date(created_at);
+function calculateTimeElapsed(created_at: string | undefined): string {
+    const createdAt = new Date(created_at!);
     const now = new Date();
     const timeDifference = now.getTime() - createdAt.getTime();
 
