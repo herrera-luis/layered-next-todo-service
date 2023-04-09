@@ -4,7 +4,7 @@ import { Todo } from "../models/Todo";
 const API_BASE_URL = "http://localhost:8000";
 
 export const getAllTodos = async (): Promise<Todo[]> => {
-    const response = await axios.get(`${API_BASE_URL}/todos`);
+    const response = await axios.get(`${API_BASE_URL}/api/v1/todos`);
     return response.data;
 };
 
