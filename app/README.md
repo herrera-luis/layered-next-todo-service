@@ -1,6 +1,6 @@
 # TODO service with Layered Architecture
 
-This structure represents a layered architecture style, which is a design pattern that organizes code into separate layers, each with a specific responsibility. In this structure, we can identify the following layers:
+This structure represents a layered architecture structure patitioning, which is a design that organizes code into separate layers, each with a specific responsibility. In this structure, we can identify the following layers:
 
 ## Presentation Layer: components/ and page.tsx
 
@@ -15,4 +15,4 @@ This layer contains the application's core logic and manages the data flow betwe
 This layer is responsible for communicating with external systems or data storage to fetch, store, and update data. The services folder, containing the `TodoService.ts` file, represents the persistence layer, as it contains the functions for interacting with the API. 
 
 
-In summary, this structure separates the concerns of presentation, business logic, and data persistence, following the principles of a layered architecture style.
+In summary, this structure separates the concerns of presentation, business logic, and data persistence, following the principles of a layered architecture.
