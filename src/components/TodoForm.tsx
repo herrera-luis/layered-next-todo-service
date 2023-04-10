@@ -25,6 +25,8 @@ const TodoForm: React.FC = () => {
             addTodo(todo);
         }
         setTodo({ title: '', description: '', status: "todo" });
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

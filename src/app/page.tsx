@@ -9,19 +9,19 @@ const HomePage: React.FC = () => {
     <div className="App">
       <TodoProvider>
         <div className="container">
-          <h1 className="display-6">TODO App</h1>
-          <TodoForm />
-        </div >
-        <div className="container-fluid">
+          <h1 className="text-center">TODO</h1>
           <div className="row">
-            <div className="col">
-            </div>
+            <div className="col-lg-3" />
             <div className="col-lg">
-              <TodoList />
+              <TodoForm />
             </div>
-            <div className="col">
-            </div>
+            <div className="col-lg-3" />
+
           </div>
+
+        </div >
+        <div className="container">
+          <TodoList />
         </div >
       </TodoProvider>
     </div >

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TodoItemProps } from '../models/Todo';
+import { Todo, TodoItemProps } from '../models/Todo';
 import { TodoContext } from '../contexts/TodoContext';
 import ConfirmationModal from "./ConfirmationModal";
 
@@ -12,6 +12,11 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     const handleDeleteClick = () => {
         setShowModal(true);
     };
+
+    const handleEditClick = (todo: Todo) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setCurrentTodo(todo)
+    }
 
     const handleConfirmDelete = () => {
         deleteTodo(todo.id);
@@ -33,7 +38,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
                 <span className={`badge ${getBadgeColor(todo.status as TodoStatus)}`}>{todo.status}</span>
                 <br /><br />
                 <div className="d-flex gap-2 mb-3">
-                    <button type="button" className="btn btn-outline-info btn-sm" onClick={() => setCurrentTodo(todo)}>
+                    <button type="button" className="btn btn-outline-info btn-sm" onClick={() => handleEditClick(todo)}>
                         <i className="bi bi-pencil"> Edit</i>
                     </button>
                     <button type="button" className="btn btn-outline-danger btn-sm" onClick={handleDeleteClick}>

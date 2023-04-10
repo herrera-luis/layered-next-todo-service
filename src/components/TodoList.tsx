@@ -11,20 +11,33 @@ const TodoList: React.FC = () => {
     const { todos } = context;
 
     return (
-        <div>
-            <h2>Todo List</h2>
+        <div >
+            <hr className="p-2" />
             {
                 todos.length === 0 ? (
-                    <p>No todos found.</p>
+                    <p>No TODOs found.</p>
                 ) : (
-                    <div className="list-group list-group-checkable d-grid gap-2 border-0 w-auto">
-                        {todos.map((todo) => (
-                            <TodoItem key={todo.id} todo={todo} />
-                        ))}
+                    <div className=" row list-item-group">
+                        <div className="col-lg-1" />
+                        <div className="col-lg-10">
+                            <div className="container">
+                                <div className='row'>
+                                    {todos.map((todo) => (
+                                        <>
+                                            <div className="col-lg-6 p-2">
+                                                <TodoItem key={todo.id} todo={todo} />
+                                            </div>
+                                            <br />
+                                        </>
+                                    ))}
+                                </div >
+                            </div >
+                        </div>
+                        <div className="col-lg-1" />
                     </div>)
             }
             <br />
-        </div>
+        </div >
 
 
     );
