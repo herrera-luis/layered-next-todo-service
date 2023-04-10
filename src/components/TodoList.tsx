@@ -21,14 +21,14 @@ const TodoList: React.FC = () => {
                         <div className="col-lg-1" />
                         <div className="col-lg-10">
                             <div className="container">
-                                <div className='row'>
+                                <div className='row' key="todo-list">
                                     {todos.map((todo) => (
-                                        <>
+                                        <React.Fragment key={todo.id}>
                                             <div className="col-lg-6 p-2">
                                                 <TodoItem key={todo.id} todo={todo} />
                                             </div>
                                             <br />
-                                        </>
+                                        </React.Fragment>
                                     ))}
                                 </div >
                             </div >

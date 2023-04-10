@@ -1,5 +1,5 @@
 'use client'
-import { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { TodoContext } from '../contexts/TodoContext';
 import { Todo } from '../models/Todo';
 
@@ -65,12 +65,12 @@ const TodoForm: React.FC = () => {
                     onChange={handleChange}
                     required
                 ></textarea>
-                <label htmlFor="description">
+                <label htmlFor="todoDescription">
                     Description
                 </label>
             </div>
 
-            <label htmlFor="status" >
+            <label htmlFor="todoStatus" >
                 Status
             </label>
             <select

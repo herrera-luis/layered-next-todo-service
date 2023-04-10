@@ -2,6 +2,7 @@ import React from "react";
 import TodoList from "../components/TodoList";
 import TodoForm from '../components/TodoForm';
 import { TodoProvider } from '../contexts/TodoContext';
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const HomePage: React.FC = () => {
 
@@ -13,7 +14,9 @@ const HomePage: React.FC = () => {
           <div className="row">
             <div className="col-lg-3" />
             <div className="col-lg">
-              <TodoForm />
+              <ErrorBoundary>
+                <TodoForm />
+              </ErrorBoundary>
             </div>
             <div className="col-lg-3" />
 
@@ -21,7 +24,9 @@ const HomePage: React.FC = () => {
 
         </div >
         <div className="container">
-          <TodoList />
+          <ErrorBoundary>
+            <TodoList />
+          </ErrorBoundary>
         </div >
       </TodoProvider>
     </div >
