@@ -7,16 +7,16 @@ import React from 'react';
 const API_BASE_URL = 'http://localhost:8000';
 
 const server = setupServer(
-    rest.get(`${API_BASE_URL}/api/v1/todos/`, (req, res, ctx) => {
+    rest.get(`${API_BASE_URL}/api/v1/todo`, (req, res, ctx) => {
         return res(ctx.json([{ id: 1, title: 'Test Todo', description: 'This is a test', status: 'todo' }]));
     }),
-    rest.post(`${API_BASE_URL}/api/v1/todos/`, (req, res, ctx) => {
+    rest.post(`${API_BASE_URL}/api/v1/todo`, (req, res, ctx) => {
         return res(ctx.json({ id: 2, title: 'New Todo', description: 'Another test', status: 'todo' }));
     }),
-    rest.put(`${API_BASE_URL}/api/v1/todos/:id`, (req, res, ctx) => {
+    rest.put(`${API_BASE_URL}/api/v1/todo/:id`, (req, res, ctx) => {
         return res(ctx.status(200));
     }),
-    rest.delete(`${API_BASE_URL}/api/v1/todos/:id`, (req, res, ctx) => {
+    rest.delete(`${API_BASE_URL}/api/v1/todo/:id`, (req, res, ctx) => {
         return res(ctx.status(200));
     })
 );
