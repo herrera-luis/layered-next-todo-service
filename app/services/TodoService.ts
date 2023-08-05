@@ -2,7 +2,7 @@ import axios from "axios";
 import { Todo } from "../models/Todo";
 import { env } from '../lib/utils';
 
-const API_BASE_URL = env('API_BASE_URL');
+const API_BASE_URL = env('API_BASE_URL') || process.env.API_BASE_URL;
 
 export const fetchTodos = async (): Promise<Todo[]> => {
     const { data } = await axios.get(`${API_BASE_URL}/api/v1/todo`);
